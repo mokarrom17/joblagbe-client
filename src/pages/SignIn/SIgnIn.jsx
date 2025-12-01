@@ -1,12 +1,13 @@
-import Lottie from "lottie-react";
-import registerLottie from "../../assets/lottie/register.json";
+import React, { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
-import { useContext } from "react";
+import Lottie from "lottie-react";
+import signINLottie from "../../assets/lottie/SingnIn.json";
+import { Result } from "postcss";
 
-const Register = () => {
-  const { createUser } = useContext(AuthContext);
+const SIgnIn = () => {
+  const { signInUser } = useContext(AuthContext);
 
-  const handleRegister = (e) => {
+  const handleSignIn = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -14,14 +15,14 @@ const Register = () => {
     const password = form.password.value;
     console.log(name, email, password);
 
-    // Create User
-    createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // Sign In User
+    signInUser(email, password)
+    .then(result => {
+        console.log(result.user)
+    })
+    .catch(error => {
+        console.log(error)
+    })
   };
   return (
     <div className="min-h-screen bg-base-200 flex items-center justify-center">
@@ -30,7 +31,7 @@ const Register = () => {
         <div className="w-full lg:w-1/3 flex items-center justify-center p-4">
           <Lottie
             className="w-full h-full max-h-[80vh]"
-            animationData={registerLottie}
+            animationData={signINLottie}
             loop={true}
           />
         </div>
@@ -39,15 +40,17 @@ const Register = () => {
         <div className="w-full lg:w-2/3 flex items-center justify-end p-4">
           <div>
             <div className="mb-6 text-center">
-              <h1 className="text-2xl font-bold text-center mb-2">Register</h1>
-              <p className="text-4xl font-bold mb-2">Start for free today</p>
+              <h1 className="text-2xl font-bold text-center mb-2">
+                Welcome Back
+              </h1>
+              <p className="text-4xl font-bold mb-2">Member Login</p>
               <h1 className="text-md ">
                 Access to all features. No credit card required.
               </h1>
             </div>
             <div className="card bg-base-100 shadow-2xl w-full max-w-sm">
               <div className="card-body">
-                <form onSubmit={handleRegister}>
+                <form onSubmit={handleSignIn}>
                   <fieldset className="space-y-4">
                     <div>
                       <label className="label">Name</label>
@@ -80,7 +83,7 @@ const Register = () => {
                     </div>
 
                     <button className="btn btn-neutral w-full mt-4">
-                      Register
+                      SignIn
                     </button>
                   </fieldset>
                 </form>
@@ -93,4 +96,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default SIgnIn;
