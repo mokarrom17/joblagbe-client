@@ -3,6 +3,7 @@ import registerLottie from "../../assets/lottie/register.json";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import { useContext } from "react";
 import SocialLogin from "../shared/SocialLogin";
+import { Link } from "react-router";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -10,9 +11,9 @@ const Register = () => {
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
-    
+
     const email = form.email.value;
-    
+
     const password = form.password.value;
 
     createUser(email, password)
@@ -21,11 +22,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4">
-      <div className="flex flex-col lg:flex-row w-full max-w-7xl items-center gap-10">
-
+    <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-10">
+      <div className="flex flex-col lg:flex-row-reverse w-full max-w-7xl items-center gap-10">
         {/* LEFT - LOTTIE */}
-        <div className="w-full lg:w-1/2 flex justify-center">
+        <div className="w-full lg:w-1/3 flex justify-center">
           <Lottie
             className="w-full max-w-md"
             animationData={registerLottie}
@@ -34,9 +34,8 @@ const Register = () => {
         </div>
 
         {/* RIGHT - FORM */}
-        <div className="w-full lg:w-1/2 flex justify-center">
+        <div className="w-full lg:w-2/3 flex justify-center">
           <div className="w-full max-w-md">
-
             {/* Heading */}
             <div className="text-center mb-6">
               <a className="text-sm text-blue-600 font-semibold cursor-pointer">
@@ -49,18 +48,14 @@ const Register = () => {
             </div>
 
             {/* Social Login */}
-            <div className="mb-6">
+            <div className="mb-6 flex justify-center">
               <SocialLogin />
             </div>
-
             <div className="divider text-gray-400">Or continue with</div>
-
             {/* FORM BOX */}
             <div className="card bg-base-100 shadow-xl mt-4">
               <div className="card-body">
-
                 <form onSubmit={handleRegister} className="space-y-4">
-
                   <div>
                     <label className="label font-medium">Full Name *</label>
                     <input
@@ -122,20 +117,22 @@ const Register = () => {
                     <span className="text-sm">Agree our terms and policy</span>
                   </label>
 
-                  <button className="btn btn-neutral w-full mt-3">
+                  <button className="btn bg-[#002246] w-full mt-3 hover:bg-[#426aff] text-white transition-colors">
                     Submit & Register
                   </button>
-
                 </form>
-
               </div>
             </div>
 
-            <p className="text-center text-sm mt-4">
+            <p className="text-center text-sm mt-4 mb-4">
               Already have an account?{" "}
-              <a className="text-blue-600 font-semibold cursor-pointer">Sign in</a>
+              <Link
+                to="/signIn"
+                className="text-blue-600 font-semibold cursor-pointer"
+              >
+                Sign in
+              </Link>
             </p>
-
           </div>
         </div>
       </div>

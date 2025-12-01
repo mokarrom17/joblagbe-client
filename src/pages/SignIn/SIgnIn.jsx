@@ -3,6 +3,8 @@ import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import Lottie from "lottie-react";
 import signINLottie from "../../assets/lottie/SingnIn.json";
 import { Result } from "postcss";
+import SocialLogin from "../shared/SocialLogin";
+import { Link } from "react-router";
 
 const SIgnIn = () => {
   const { signInUser } = useContext(AuthContext);
@@ -25,74 +27,85 @@ const SIgnIn = () => {
     })
   };
   return (
-    <div className="min-h-screen bg-base-200 flex items-center justify-center">
-      <div className="flex flex-col lg:flex-row-reverse w-full max-w-6xl items-center">
-        {/* Lottie Animation on the left */}
-        <div className="w-full lg:w-1/3 flex items-center justify-center p-4">
-          <Lottie
-            className="w-full h-full max-h-[80vh]"
-            animationData={signINLottie}
-            loop={true}
-          />
-        </div>
+      <div className="min-h-screen bg-base-200 flex items-center justify-center px-4 py-10">
+         <div className="flex flex-col lg:flex-row-reverse w-full max-w-7xl items-center gap-10">
+           {/* LEFT - LOTTIE */}
+           <div className="w-full lg:w-1/3 flex justify-center">
+             <Lottie
+               className="w-full max-w-md"
+               animationData={signINLottie}
+               loop={true}
+             />
+           </div>
 
-        {/* Register Form in the middle/right */}
-        <div className="w-full lg:w-2/3 flex items-center justify-end p-4">
-          <div>
-            <div className="mb-6 text-center">
-              <h1 className="text-2xl font-bold text-center mb-2">
-                Welcome Back
-              </h1>
-              <p className="text-4xl font-bold mb-2">Member Login</p>
-              <h1 className="text-md ">
-                Access to all features. No credit card required.
-              </h1>
-            </div>
-            <div className="card bg-base-100 shadow-2xl w-full max-w-sm">
-              <div className="card-body">
-                <form onSubmit={handleSignIn}>
-                  <fieldset className="space-y-4">
-                    <div>
-                      <label className="label">Name</label>
-                      <input
-                        type="text"
-                        name="name"
-                        className="input input-bordered w-full"
-                        placeholder="Name"
-                      />
-                    </div>
+           {/* RIGHT - FORM */}
+           <div className="w-full lg:w-2/3 flex justify-center">
+             <div className="w-full max-w-md">
+               {/* Heading */}
+               <div className="text-center mb-6">
+                 <a className="text-sm text-blue-600 font-semibold cursor-pointer">
+                   Register
+                 </a>
+                 <h1 className="text-3xl font-bold mt-2">Start for free Today</h1>
+                 <p className="text-gray-500 mt-2">
+                   Access to all features. No credit card required.
+                 </p>
+               </div>
 
-                    <div>
-                      <label className="label">Email</label>
-                      <input
-                        type="email"
-                        name="email"
-                        className="input input-bordered w-full"
-                        placeholder="Email"
-                      />
-                    </div>
+               {/* Social Login */}
+               <div className="mb-6 flex justify-center">
+                 <SocialLogin />
+               </div>
+               <div className="divider text-gray-400">Or continue with</div>
+               {/* FORM BOX */}
+               <div className="card bg-base-100 shadow-xl mt-4">
+                 <div className="card-body">
+                   <form onSubmit={handleSignIn} className="space-y-4">
+                     
 
-                    <div>
-                      <label className="label">Password</label>
-                      <input
-                        type="password"
-                        name="password"
-                        className="input input-bordered w-full"
-                        placeholder="Password"
-                      />
-                    </div>
+                     <div>
+                       <label className="label font-medium">Email *</label>
+                       <input
+                         type="email"
+                         name="email"
+                         className="input input-bordered w-full"
+                         placeholder="stevenjob@gmail.com"
+                         required
+                       />
+                     </div>
 
-                    <button className="btn btn-neutral w-full mt-4">
-                      SignIn
-                    </button>
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+                     <div>
+                       <label className="label font-medium">Password *</label>
+                       <input
+                         type="password"
+                         name="password"
+                         className="input input-bordered w-full"
+                         placeholder="************"
+                         required
+                       />
+                     </div>
+
+                     <button className="btn bg-[#002246] w-full mt-3 hover:bg-[#426aff] text-white transition-colors">
+                       Submit & Sign In
+                     </button>
+                   </form>
+                 </div>
+               </div>
+
+               <p className="text-center text-sm mt-4 mb-4">
+                  Don’t have an account?{" "}
+                 <Link
+                   to="/register"
+                   className="text-blue-600 font-semibold cursor-pointer"
+                 >
+                   Register
+                 </Link>
+               </p>
+             </div>
+           </div>
+         </div>
+       </div>
   );
 };
 
