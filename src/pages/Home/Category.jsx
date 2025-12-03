@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion } from "framer-motion";
 import finance from "../../assets/category/finance.jpg";
 import software from "../../assets/category/software.jpg";
