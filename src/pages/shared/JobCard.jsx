@@ -5,13 +5,9 @@ const JobCard = ({ job }) => {
   const {
     title,
     location,
-    company_logo,
-    jobType,
-    category,
-    applicatinDeadline,
+    company,
     salaryRange,
     description,
-    company,
     requirements,
     _id
   } = job;
@@ -20,10 +16,10 @@ const JobCard = ({ job }) => {
       <div className="card bg-base-100 w-full shadow-sm h-full">
         <div className="flex items-center gap-4 p-4">
           <figure>
-            <img src={company_logo} alt="Shoes" />
+            <img src={company.logo} alt="Shoes" />
           </figure>
           <div className="">
-            <h3 class="text-2xl">{company}</h3>
+            <h3 class="text-2xl">{company.name}</h3>
             <p className="flex items-center">
               <CiLocationOn /> {location}
             </p>
@@ -48,7 +44,7 @@ const JobCard = ({ job }) => {
             Salary: {salaryRange.min} - {salaryRange.max} {salaryRange.currency}
           </p>
           <div className="card-actions justify-end">
-            <Link to={`/jobs/${_id}`}><button className="btn btn-primary">Apply Now</button></Link>
+            <Link to={`/jobs/${_id}`}><button className="btn btn-primary">Show Details</button></Link>
           
           </div>
         </div>
@@ -58,3 +54,6 @@ const JobCard = ({ job }) => {
 };
 
 export default JobCard;
+
+
+// https://i.ibb.co.com/NdCNdZDL/Software-Engineer.jpg
