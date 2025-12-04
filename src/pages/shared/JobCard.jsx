@@ -2,6 +2,12 @@ import { CiLocationOn } from "react-icons/ci";
 import { Link } from "react-router";
 
 const JobCard = ({ job }) => {
+  const truncateWords =(text , limit) =>{
+    const words = text.split(' ')
+    if(words.length <= limit)
+      return text
+    return words.slice(0, limit).join(' ')+"..."
+  }
   const {
     title,
     location,
@@ -27,7 +33,7 @@ const JobCard = ({ job }) => {
         </div>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <p>{description}</p>
+          <p>{(truncateWords(description, 10))}</p>
 
           <div className="card-actions">
             {requirements.slice(0, 2).map((skill, index) => (
@@ -56,4 +62,3 @@ const JobCard = ({ job }) => {
 export default JobCard;
 
 
-// https://i.ibb.co.com/NdCNdZDL/Software-Engineer.jpg
