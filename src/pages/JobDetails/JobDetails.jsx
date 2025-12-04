@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, useLoaderData } from "react-router";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { LiaIndustrySolid } from "react-icons/lia";
@@ -10,8 +9,29 @@ import { AiOutlineExperiment } from "react-icons/ai";
 import { RxLapTimer } from "react-icons/rx";
 import { MdOutlineLocationOn } from "react-icons/md";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { useEffect, useState } from "react";
+import JobCard from "../shared/JobCard";
+
 const JobDetails = () => {
   const job = useLoaderData();
+
+  const [relatedJobs, setRelatedJobs] = useState([]);
+
+  useEffect(() => {
+    if (!job) return; // wait for main job to load
+
+    fetch(`http://localhost:3000/jobs`)
+      .then((res) => res.json())
+      .then((data) => {
+        // remove the current job from the list
+        const filtered = data.filter((j) => j._id !== job._id);
+        setRelatedJobs(filtered);
+      });
+  }, [job]);
 
   return (
     <div className="px-10">
@@ -139,46 +159,76 @@ const JobDetails = () => {
           </div>
         </div>
         <div className="mb-8 space-y-8">
-            <div>
-          <h1 className="text-3xl font-semibold">Responsibilities</h1>
-          <p className="text-md ml-6 mt-2"> 
-            {job.responsibilities.map((items, index) => (
-              <li key={index}>{items}</li>
-            ))}
-            
-          </p>
-        </div>
-        <div>
-          <h1 className="text-3xl font-semibold">Essential Knowledge, Skills, and Experience</h1>
-          <p className="text-md ml-6 mt-2"> 
-            {job.essentialKnowledgeSkillsExperience.map((items, index) => (
-              <li key={index}>{items}</li>
-            ))}
-            
-          </p>
-        </div>
-        <div>
-          <h1 className="text-3xl font-semibold">Preferred Experience</h1>
-          <p className="text-md ml-6 mt-2"> 
-            {job.preferredKnowledgeSkillsExperience.map((items, index) => (
-              <li key={index}>{items}</li>
-            ))}
-            
-          </p>
-        </div>
+          <div>
+            <h1 className="text-3xl font-semibold">Responsibilities</h1>
+            <p className="text-md ml-6 mt-2">
+              {job.responsibilities.map((items, index) => (
+                <li key={index}>{items}</li>
+              ))}
+            </p>
+          </div>
+          <div>
+            <h1 className="text-3xl font-semibold">
+              Essential Knowledge, Skills, and Experience
+            </h1>
+            <p className="text-md ml-6 mt-2">
+              {job.essentialKnowledgeSkillsExperience.map((items, index) => (
+                <li key={index}>{items}</li>
+              ))}
+            </p>
+          </div>
+          <div>
+            <h1 className="text-3xl font-semibold">Preferred Experience</h1>
+            <p className="text-md ml-6 mt-2">
+              {job.preferredKnowledgeSkillsExperience.map((items, index) => (
+                <li key={index}>{items}</li>
+              ))}
+            </p>
+          </div>
         </div>
         {/* Divider */}
-            <div className="divider"></div>
-         <div className="flex gap-10">
-            <div className="card-actions justify-start">
-            <Link ><button className="btn btn-primary text-lg p-5 hover:bg-[#002246] text-white">Apply Now</button></Link>
-          
+        <div className="divider"></div>
+        <div className="flex gap-10">
+          <div className="card-actions justify-start">
+            <Link>
+              <button className="btn btn-primary text-lg p-5 hover:bg-[#002246] text-white">
+                Apply Now
+              </button>
+            </Link>
           </div>
-           <div className="card-actions justify-start">
-            <Link><button className="btn text-lg border-2 hover:bg-[#002246] hover:text-white rounded-md p-5">Save Job</button></Link>
+          <div className="card-actions justify-start">
+            <Link>
+              <button className="btn text-lg border-2 hover:bg-[#002246] hover:text-white rounded-md p-5">
+                Save Job
+              </button>
+            </Link>
           </div>
-         </div>
+        </div>
       </div>
+      <div className="mt-12 text-center mb-8">
+        <h2 className="text-4xl font-bold">Featured Jobs</h2>
+        <p className="text-lg text-gray-500">
+          Get the latest news, updates and tips
+        </p>
+      </div>
+
+      <Swiper
+        
+        spaceBetween={20}
+        slidesPerView={1}
+        breakpoints={{
+          640: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
+        className="my-10 px-5"
+      >
+        {relatedJobs.map((item) => (
+          <SwiperSlide key={item._id}>
+            <JobCard job={item} />
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   );
 };
