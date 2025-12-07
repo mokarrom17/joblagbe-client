@@ -3,10 +3,14 @@ import registerLottie from "../../assets/lottie/register.json";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import { useContext } from "react";
 import SocialLogin from "../shared/SocialLogin";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const location = useLocation()
+  const navigate = useNavigate()
+  const from = location.state || "/"
+  console.log("Location in signIn page :", location)
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -17,7 +21,10 @@ const Register = () => {
     const password = form.password.value;
 
     createUser(email, password)
-      .then((result) => console.log(result.user))
+      .then((result) =>{ 
+        console.log(result.user)
+      navigate(from)
+      })
       .catch((error) => console.log(error));
   };
 
@@ -49,7 +56,7 @@ const Register = () => {
 
             {/* Social Login */}
             <div className="mb-6 flex justify-center">
-              <SocialLogin />
+              <SocialLogin from={from} />
             </div>
             <div className="divider text-gray-400">Or continue with</div>
             {/* FORM BOX */}

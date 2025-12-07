@@ -190,7 +190,7 @@ const JobDetails = () => {
         <div className="divider"></div>
         <div className="flex gap-10">
           <div className="card-actions justify-start">
-            <Link>
+            <Link to={`/job-apply/${job._id}`}>
               <button className="btn btn-primary text-lg p-5 hover:bg-[#002246] text-white">
                 Apply Now
               </button>
