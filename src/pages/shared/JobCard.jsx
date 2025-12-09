@@ -19,7 +19,7 @@ const JobCard = ({ job }) => {
   } = job;
   return (
     <div>
-      <div className="card bg-base-100 w-full shadow-sm h-[350px] hover:shadow-lg transition-shadow duration-300">
+      <div className="card bg-base-100 w-full shadow-sm h-full hover:shadow-lg transition-shadow duration-300">
         <div className="flex items-center gap-4 p-4">
           <figure>
             <img src={company.logo} alt="Shoes" />

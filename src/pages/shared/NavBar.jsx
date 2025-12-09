@@ -3,18 +3,17 @@ import { NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 const NavBar = () => {
-
-  const {user, signOutUser } = use(AuthContext);
+  const { user, signOutUser } = use(AuthContext);
 
   const handleSignOut = () => {
     signOutUser()
-    .then(()=>{
-      console.log("sign out user")
-    })
-    .catch(error=> {
-      console.log(error)
-    })
-  }
+      .then(() => {
+        console.log("sign out user");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const links = (
     <>
@@ -27,9 +26,13 @@ const NavBar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink to="/my-applications">MyApplications</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -66,17 +69,20 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-5">
-        {
-          user ? <button onClick={handleSignOut} className="btn">Sign Out</button>:
+        {user ? (
+          <button onClick={handleSignOut} className="btn">
+            Sign Out
+          </button>
+        ) : (
           <>
-          <NavLink to="/register" className="btn">
-          Register
-        </NavLink>
-        <NavLink to="/signIn" className="btn">
-          SignIn
-        </NavLink>
+            <NavLink to="/register" className="btn">
+              Register
+            </NavLink>
+            <NavLink to="/signIn" className="btn">
+              SignIn
+            </NavLink>
           </>
-        }
+        )}
       </div>
     </div>
   );

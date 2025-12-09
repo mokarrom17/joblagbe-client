@@ -25,6 +25,7 @@ const JobApply = () => {
       jobId,
       applicant: user.email,
       resume,
+      description
     };
 
     axios
