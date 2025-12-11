@@ -1,6 +1,8 @@
 import React from "react";
 import { FaUserAstronaut } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddJobs = () => {
   const { user } = useAuth();
@@ -11,8 +13,27 @@ const AddJobs = () => {
     const data = Object.fromEntries(fromData.entries());
 
     // process salary range data
-    const { salaryMin, salaryMax, salaryCurrency, ...newJob } = data;
-    newJob.salaryRange = { salaryMin, salaryMax, salaryCurrency };
+    const {
+      companyName,
+      companyLogo,
+      "company.hrName": hrName,
+      "company.hrEmail": hrEmail,
+      min,
+      max,
+      currency,
+      ...newJob
+    } = data;
+
+    // Create proper nested objects
+    newJob.company = {
+      name: companyName,
+      logo: companyLogo,
+      hr_name: hrName,
+      hr_email: hrEmail,
+    };
+
+    // Salary range
+    newJob.salaryRange = { min, max, currency };
 
     // Convert comma-separated fields into arrays
     newJob.requirements = newJob.requirements
@@ -23,15 +44,37 @@ const AddJobs = () => {
       ? newJob.responsibilities.split(",").map((item) => item.trim())
       : [];
 
-    newJob.essentialKnowledge = newJob.essentialKnowledge
-      ? newJob.essentialKnowledge.split(",").map((item) => item.trim())
-      : [];
+    newJob.essentialKnowledgeSkillsExperience =
+      newJob.essentialKnowledgeSkillsExperience
+        ? newJob.essentialKnowledgeSkillsExperience
+            .split(",")
+            .map((item) => item.trim())
+        : [];
 
-    newJob.preferredKnowledge = newJob.preferredKnowledge
-      ? newJob.preferredKnowledge.split(",").map((item) => item.trim())
-      : [];
+    newJob.preferredKnowledgeSkillsExperience =
+      newJob.preferredKnowledgeSkillsExperience
+        ? newJob.preferredKnowledgeSkillsExperience
+            .split(",")
+            .map((item) => item.trim())
+        : [];
 
     console.log(newJob); // This will now show arrays correctly
+
+    // save job to the database
+    axios
+      .post("http://localhost:3000/jobs", newJob)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "This new job has been saved and published.",
+            icon: "success",
+            draggable: true,
+          });
+        }
+      })
+      .then((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="max-w-6xl mx-auto my-10">
@@ -188,7 +231,7 @@ const AddJobs = () => {
               <label className="font-medium">HR Name</label>
               <input
                 type="text"
-                name="hrName"
+                name="company.hrName"
                 className="input input-bordered w-full mt-2"
               />
             </div>
@@ -197,7 +240,7 @@ const AddJobs = () => {
               <label className="font-medium">HR Email</label>
               <input
                 type="email"
-                name="hrEmail"
+                name="company.hrEmail"
                 defaultValue={user.email}
                 className="input input-bordered w-full mt-2"
               />
@@ -213,7 +256,7 @@ const AddJobs = () => {
             {/* Minimum Salary */}
             <input
               type="text"
-              name="salaryMin"
+              name="min"
               placeholder="Minimum Salary"
               className="input input-bordered w-full"
             />
@@ -221,16 +264,13 @@ const AddJobs = () => {
             {/* Maximum Salary */}
             <input
               type="text"
-              name="salaryMax"
+              name="max"
               placeholder="Maximum Salary"
               className="input input-bordered w-full"
             />
 
             {/* Currency */}
-            <select
-              name="salaryCurrency"
-              className="select select-bordered w-full"
-            >
+            <select name="currency" className="select select-bordered w-full">
               <option value="">Currency</option>
               <option value="bdt">BDT</option>
               <option value="usd">USD</option>
@@ -273,7 +313,7 @@ const AddJobs = () => {
             </label>
             <input
               type="text"
-              name="essentialKnowledge" // <-- Add this!
+              name="essentialKnowledgeSkillsExperience" // <-- Add this!
               className="input input-bordered w-full mt-2"
               placeholder="Frontend frameworks, Backend architecture, API design"
             />
@@ -283,8 +323,11 @@ const AddJobs = () => {
             <label className="font-medium">
               Preferred Knowledge (comma separated)
             </label>
-            <input type="text"
-            name="preferredKnowledge" className="input input-bordered w-full mt-2" />
+            <input
+              type="text"
+              name="preferredKnowledgeSkillsExperience"
+              className="input input-bordered w-full mt-2"
+            />
           </div>
         </div>
 

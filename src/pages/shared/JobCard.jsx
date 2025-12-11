@@ -22,10 +22,10 @@ const JobCard = ({ job }) => {
       <div className="card bg-base-100 w-full shadow-sm h-full hover:shadow-lg transition-shadow duration-300">
         <div className="flex items-center gap-4 p-4">
           <figure>
-            <img src={company.logo} alt="Shoes" />
+            <img className="w-20" src={company.logo} alt="logo" />
           </figure>
           <div className="">
-            <h3 class="text-2xl">{company.name}</h3>
+            <h3 className="text-2xl font-bold">{company.name}</h3>
             <p className="flex items-center">
               <CiLocationOn /> {location}
             </p>

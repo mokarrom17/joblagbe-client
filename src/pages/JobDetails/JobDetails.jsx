@@ -76,7 +76,8 @@ const JobDetails = () => {
                     Salary
                   </p>
                   <p className="text-gray-800 text-lg font-semibold">
-                    {job.salaryRange.min} - {job.salaryRange.max} {job.salaryRange.currency}
+                    {job.salaryRange.min} - {job.salaryRange.max}{" "}
+                    {job.salaryRange.currency}
                   </p>
                 </div>
               </div>
@@ -159,11 +160,20 @@ const JobDetails = () => {
           </div>
         </div>
         <div className="mb-8 space-y-8">
+          {/* Requirements */}
+          <div>
+            <h1 className="text-3xl font-semibold">Requirements</h1>
+            <ul className="text-md ml-6 mt-2 list-disc">
+              {(job.requirements || []).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
           <div>
             <h1 className="text-3xl font-semibold">Responsibilities</h1>
             <p className="text-md ml-6 mt-2">
-              {job.responsibilities.map((items, index) => (
-                <li key={index}>{items}</li>
+              {(job.responsibilities || []).map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </p>
           </div>
@@ -172,9 +182,11 @@ const JobDetails = () => {
               Essential Knowledge, Skills, and Experience
             </h1>
             <p className="text-md ml-6 mt-2">
-              {job.essentialKnowledgeSkillsExperience.map((items, index) => (
-                <li key={index}>{items}</li>
-              ))}
+              {(job.essentialKnowledgeSkillsExperience || []).map(
+                (item, index) => (
+                  <li key={index}>{item}</li>
+                )
+              )}
             </p>
           </div>
           <div>
@@ -213,7 +225,6 @@ const JobDetails = () => {
       </div>
 
       <Swiper
-        
         spaceBetween={20}
         slidesPerView={1}
         breakpoints={{
