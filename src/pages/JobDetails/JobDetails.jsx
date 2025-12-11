@@ -76,7 +76,7 @@ const JobDetails = () => {
                     Salary
                   </p>
                   <p className="text-gray-800 text-lg font-semibold">
-                    {job.salary}
+                    {job.salaryRange.min} - {job.salaryRange.max} {job.salaryRange.currency}
                   </p>
                 </div>
               </div>

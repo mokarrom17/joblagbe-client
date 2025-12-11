@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/jobhub-logo.svg";
+import logo from "../../assets/Footer btn/webLogo.jpg"
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -13,7 +13,7 @@ const Footer = () => {
     <div className="mt-12 px-12">
       <footer className="footer sm:footer-horizontal bg-base-200 text-base-content px-10 py-16">
         <aside className="w-64">
-          <img src={logo} alt="JobHub Logo" />
+          <img className="w-36" src={logo} alt="JobHub Logo" />
           <p>
             JobBox is the heart of the design community and the best resource to
             discover and connect with designers and jobs worldwide.

@@ -1,6 +1,7 @@
 import React, { use } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
+import logo from "../../assets/Footer btn/webLogo.jpg"
 
 const NavBar = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -26,10 +27,19 @@ const NavBar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
+      {/* For applicant links, check roles as well */}
       {user && (
         <>
           <li>
             <NavLink to="/my-applications">MyApplications</NavLink>
+          </li>
+        </>
+      )}
+      {/* For recruiter links, check roles as well */}
+      {user && (
+        <>
+          <li>
+            <NavLink to="/addJOb">Add Job</NavLink>
           </li>
         </>
       )}
@@ -63,7 +73,11 @@ const NavBar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">JobLagbe</a>
+        <Link to="/">
+              <button>
+                <img className="w-24" src={logo} alt="Job Lagbe Logo" />
+              </button>
+            </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
