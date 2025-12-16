@@ -21,12 +21,7 @@ const NavBar = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
-      <li>
-        <NavLink to="/">Home</NavLink>
-      </li>
+     
       {/* For applicant links, check roles as well */}
       {user && (
         <>
@@ -40,6 +35,9 @@ const NavBar = () => {
         <>
           <li>
             <NavLink to="/addJOb">Add Job</NavLink>
+          </li>
+          <li>
+            <NavLink to="/myPostedJobs">My Posted Jobs</NavLink>
           </li>
         </>
       )}
