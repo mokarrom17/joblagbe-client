@@ -24,8 +24,10 @@ const JobApply = () => {
     const appliedJob = {
       jobId,
       applicant: user.email,
+      name,
       resume,
-      description
+      description,
+      contact
     };
 
     axios

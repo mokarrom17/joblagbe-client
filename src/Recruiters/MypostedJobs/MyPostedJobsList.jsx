@@ -34,7 +34,7 @@ const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
                     {job.deadline ? job.deadline : "No deadline"}
                   </td>
                   <td className="border p-3 text-center">
-                    {job.totalApplicants ?? 0}
+                    {job.application_count ?? 0}
                   </td>
                   <td className="border p-3"><Link to={`/applications/${job._id}`}>View Application</Link></td>
                 </tr>

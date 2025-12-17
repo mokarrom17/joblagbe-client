@@ -61,6 +61,9 @@ const AddJobs = () => {
 
     console.log(newJob); // This will now show arrays correctly
 
+    newJob.postedBy = user.email;
+    newJob.createdAt = new Date();
+
     // save job to the database
     axios
       .post("http://localhost:3000/jobs", newJob)
@@ -71,6 +74,7 @@ const AddJobs = () => {
             icon: "success",
             draggable: true,
           });
+          form.reset()
         }
       })
       .then((error) => {
@@ -331,11 +335,11 @@ const AddJobs = () => {
           </select>
         </div>
 
-        <Link to="/">
-          <button className="btn btn-primary w-full hover:bg-[#002246] hover:text-white mt-4">
+        
+          <button type="submit" className="btn btn-primary w-full hover:bg-[#002246] hover:text-white mt-4">
             Add Job
           </button>
-        </Link>
+     
       </form>
     </div>
   );
