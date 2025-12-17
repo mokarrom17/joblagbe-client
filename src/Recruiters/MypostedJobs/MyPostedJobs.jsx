@@ -8,7 +8,7 @@ const MyPostedJobs = () => {
     return (
         <div>
             <h2>My Posted Jobs: </h2>
-            <Suspense>
+            <Suspense >
                 <MyPostedJobsList jobsCreatedByPromise={jobsCreatedByPromise(user.email)}></MyPostedJobsList>
             </Suspense>
         </div>

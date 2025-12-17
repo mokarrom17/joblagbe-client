@@ -175,24 +175,15 @@ const AddJobs = () => {
               className="input input-bordered w-full mt-2"
             />
           </div>
-
-          <div>
-            <label className="font-medium">Location</label>
-            <input
-              type="text"
-              name="location"
-              className="input input-bordered w-full mt-2"
-            />
-          </div>
-
-          <div>
-            <label className="font-medium">Category</label>
-            <input
-              type="text"
-              name="category"
-              className="input input-bordered w-full mt-2"
-            />
-          </div>
+        </div>
+        {/* Location */}
+        <div>
+          <label className="font-medium">Location</label>
+          <input
+            type="text"
+            name="location"
+            className="input input-bordered w-full mt-2"
+          />
         </div>
 
         {/* Description */}
@@ -204,7 +195,6 @@ const AddJobs = () => {
             rows="4"
           ></textarea>
         </div>
-
         {/* Company Information */}
         <div className="bg-gray-50 p-5 rounded-lg border">
           <h2 className="text-xl font-semibold mb-4">Company Information</h2>
@@ -342,10 +332,9 @@ const AddJobs = () => {
         </div>
 
         <Link to="/">
-        <button className="btn btn-primary w-full hover:bg-[#002246] hover:text-white mt-4">
-          Add Job
-        </button>
-        
+          <button className="btn btn-primary w-full hover:bg-[#002246] hover:text-white mt-4">
+            Add Job
+          </button>
         </Link>
       </form>
     </div>

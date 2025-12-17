@@ -1,4 +1,5 @@
 import React, { use } from "react";
+import { Link } from "react-router";
 
 const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
   const myJobs = use(jobsCreatedByPromise);
@@ -17,9 +18,10 @@ const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
             <thead className="bg-gray-100">
               <tr>
                 <th className="border p-3 text-left">Job Title</th>
-                <th className="border p-3 text-left">Category</th>
+                <th className="border p-3 text-left">Job Level</th>
                 <th className="border p-3 text-left">Deadline</th>
                 <th className="border p-3 text-center">Total Applicants</th>
+                <th className="border p-3 text-center">View Applications</th>
               </tr>
             </thead>
 
@@ -27,13 +29,14 @@ const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
               {myJobs?.map((job, index) => (
                 <tr key={index} className="hover:bg-gray-50">
                   <td className="border p-3">{job.title}</td>
-                  <td className="border p-3">{job.category}</td>
+                  <td className="border p-3">{job.jobLevel}</td>
                   <td className="border p-3">
                     {job.deadline ? job.deadline : "No deadline"}
                   </td>
                   <td className="border p-3 text-center">
                     {job.totalApplicants ?? 0}
                   </td>
+                  <td className="border p-3"><Link to={`/applications/${job._id}`}>View Application</Link></td>
                 </tr>
               ))}
             </tbody>

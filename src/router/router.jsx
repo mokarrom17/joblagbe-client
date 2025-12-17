@@ -10,6 +10,8 @@ import PrivateRoutes from "../routes/PrivateRoutes";
 import MyApplications from "../pages/MyApplication/MyApplications";
 import AddJobs from "../Recruiters/AddJobs/AddJobs";
 import MyPostedJobs from "../Recruiters/MypostedJobs/MyPostedJobs";
+import ViewApplications from "../pages/ViewApplications/viewApplications";
+
 
 const router = createBrowserRouter([
   {
@@ -31,24 +33,52 @@ const router = createBrowserRouter([
       {
         path: "/jobs/:id",
         Component: JobDetails,
-        loader: ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/jobs/${params.id}`),
       },
       {
         path: "/job-apply/:id",
-        element: <PrivateRoutes> <JobApply></JobApply> </PrivateRoutes>
+        element: (
+          <PrivateRoutes>
+            {" "}
+            <JobApply></JobApply>{" "}
+          </PrivateRoutes>
+        ),
       },
       {
-        path:"/my-applications",
-        element: <PrivateRoutes><MyApplications></MyApplications></PrivateRoutes>
+        path: "/my-applications",
+        element: (
+          <PrivateRoutes>
+            <MyApplications></MyApplications>
+          </PrivateRoutes>
+        ),
       },
       {
-        path:"/addJOb",
-        element: <PrivateRoutes><AddJobs></AddJobs></PrivateRoutes>
+        path: "/addJOb",
+        element: (
+          <PrivateRoutes>
+            <AddJobs></AddJobs>
+          </PrivateRoutes>
+        ),
       },
       {
-        path:"/myPostedJobs",
-        element: <PrivateRoutes><MyPostedJobs></MyPostedJobs></PrivateRoutes>
-      }
+        path: "/myPostedJobs",
+        element: (
+          <PrivateRoutes>
+            <MyPostedJobs></MyPostedJobs>
+          </PrivateRoutes>
+        ),
+      },
+      {
+        path: "applications/:job_id",
+        element: (
+          <PrivateRoutes>
+            <ViewApplications></ViewApplications>
+          </PrivateRoutes>
+          
+        ),
+        loader: ({params}) => fetch(`http://localhost:3000/applications/job/${params.job_id}`)
+      },
     ],
   },
 ]);

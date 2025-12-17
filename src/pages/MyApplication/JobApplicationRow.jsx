@@ -3,7 +3,6 @@ import { Link } from "react-router";
 
 const JobApplicationRow = ({ application, index }) => {
   const { jobId, company, title, resume } = application;
-  console.log(application);
 
   return (
     <tr className="align-middle">
