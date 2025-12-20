@@ -10,7 +10,8 @@ import content from "../../assets/category/content.jpg";
 import market from "../../assets/category/research.jpg";
 import marketing from "../../assets/category/marketing.jpg";
 import customer from "../../assets/category/customer.jpg";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+
 const Category = () => {
   return (
     <div>

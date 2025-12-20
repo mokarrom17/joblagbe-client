@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import banner1 from "../../assets/Banner/banner1.png";
 import banner2 from "../../assets/Banner/banner2.png";
 import { IoSearch } from "react-icons/io5";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+
 
 
 const Banner = () => {

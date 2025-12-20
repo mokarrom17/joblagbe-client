@@ -4,7 +4,8 @@ import Lottie from "lottie-react";
 import signINLottie from "../../assets/lottie/SingnIn.json";
 import { Result } from "postcss";
 import SocialLogin from "../shared/SocialLogin";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+
 
 const SIgnIn = () => {
   const { signInUser } = useContext(AuthContext);

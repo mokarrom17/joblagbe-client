@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
   const myJobs = use(jobsCreatedByPromise);
@@ -36,7 +36,11 @@ const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
                   <td className="border p-3 text-center">
                     {job.application_count ?? 0}
                   </td>
-                  <td className="border p-3"><Link to={`/applications/${job._id}`}>View Application</Link></td>
+                  <td className="border p-3">
+                    <Link to={`/applications/${job._id}`}>
+                      View Application
+                    </Link>
+                  </td>
                 </tr>
               ))}
             </tbody>

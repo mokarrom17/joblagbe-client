@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router";
+import {  useLoaderData } from "react-router";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { LiaIndustrySolid } from "react-icons/lia";
 import { BsCoin } from "react-icons/bs";
@@ -15,6 +15,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { useEffect, useState } from "react";
 import JobCard from "../shared/JobCard";
+import { Link } from "react-router-dom";
 
 const JobDetails = () => {
   const job = useLoaderData();

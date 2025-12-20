@@ -3,7 +3,7 @@ import { FaUserAstronaut } from "react-icons/fa";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Link } from "react-router";
+
 
 const AddJobs = () => {
   const { user } = useAuth();

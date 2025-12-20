@@ -3,7 +3,8 @@ import registerLottie from "../../assets/lottie/register.json";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 import { useContext } from "react";
 import SocialLogin from "../shared/SocialLogin";
-import { Link, useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);

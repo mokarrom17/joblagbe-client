@@ -4,9 +4,10 @@ import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { Link } from "react-router";
+
 import apple from "../../assets/Footer btn/app-store.png";
 import google from "../../assets/Footer btn/android.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
