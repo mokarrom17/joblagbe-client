@@ -1,51 +1,37 @@
-import React, { use } from "react";
 import { Link } from "react-router-dom";
 
-const MyPostedJobsList = ({ jobsCreatedByPromise }) => {
-  const myJobs = use(jobsCreatedByPromise);
-
+const MyPostedJobsList = ({ jobs }) => {
   return (
-    <div>
-      <h2>Jobs created by me: {myJobs.length}</h2>
+    <div className="max-w-5xl mx-auto mt-10">
+      <div className="overflow-x-auto">
+        <table className="table w-full border">
+          <thead>
+            <tr>
+              <th>Job Title</th>
+              <th>Job Level</th>
+              <th>Deadline</th>
+              <th>Total Applicants</th>
+              <th>View Applications</th>
+            </tr>
+          </thead>
 
-      <div className="max-w-5xl mx-auto mt-10">
-        <h2 className="text-2xl font-semibold mb-4 border-l-4 border-blue-500 pl-3">
-          Job Summary: Applications Count
-        </h2>
-
-        <div className="overflow-x-auto">
-          <table className="table w-full border">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="border p-3 text-left">Job Title</th>
-                <th className="border p-3 text-left">Job Level</th>
-                <th className="border p-3 text-left">Deadline</th>
-                <th className="border p-3 text-center">Total Applicants</th>
-                <th className="border p-3 text-center">View Applications</th>
+          <tbody>
+            {jobs.map(job => (
+              <tr key={job._id}>
+                <td>{job.title}</td>
+                <td>{job.jobLevel}</td>
+                <td>{job.deadline || "No deadline"}</td>
+                <td className="text-center">{job.application_count ?? 0}</td>
+                <td>
+                  <Link to={`/applications/${job._id}`}>
+                    View Applications
+                  </Link>
+                </td>
               </tr>
-            </thead>
+            ))}
+          </tbody>
 
-            <tbody>
-              {myJobs?.map((job, index) => (
-                <tr key={index} className="hover:bg-gray-50">
-                  <td className="border p-3">{job.title}</td>
-                  <td className="border p-3">{job.jobLevel}</td>
-                  <td className="border p-3">
-                    {job.deadline ? job.deadline : "No deadline"}
-                  </td>
-                  <td className="border p-3 text-center">
-                    {job.application_count ?? 0}
-                  </td>
-                  <td className="border p-3">
-                    <Link to={`/applications/${job._id}`}>
-                      View Application
-                    </Link>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        </table>
       </div>
     </div>
   );

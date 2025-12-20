@@ -1,30 +1,33 @@
-import React, { Suspense, useMemo } from "react";
+import { useContext, useEffect, useState } from "react";
 import ApplicationStats from "./ApplicationStats";
 import ApplicationList from "./ApplicationList";
-import useAuth from "../../Hooks/useAuth";
-import { myApplicationsPromise } from "../../api/applicationApi";
+import { AuthContext } from "../../contexts/AuthContext/AuthContext";
 
 const MyApplications = () => {
-  const { user } = useAuth();
+  const { user, loading } = useContext(AuthContext);
+  const [applications, setApplications] = useState([]);
+  const [dataLoading, setDataLoading] = useState(true);
 
-  const email = user?.email
+  useEffect(() => {
+    if (!user?.email) return;
 
-  const applicationsPromise = useMemo(() => {
-    if (!email) return null;
-    return myApplicationsPromise(email);
-  }, [email]);
+    fetch(`http://localhost:3000/my-applications?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("✅ Applications:", data);
+        setApplications(data);
+        setDataLoading(false);
+      });
+  }, [user?.email]);
 
-  if (!applicationsPromise) {
-    return <p>Loading user info...</p>;
+  if (loading || dataLoading) {
+    return <p className="text-center mt-10">Loading applications...</p>;
   }
 
   return (
     <div className="px-12 mt-12">
       <ApplicationStats />
-
-      <Suspense fallback="Loading your applications...">
-        <ApplicationList myApplicationsPromise={applicationsPromise} />
-      </Suspense>
+      <ApplicationList applications={applications} />
     </div>
   );
 };

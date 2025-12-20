@@ -1,42 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
 const JobApplicationRow = ({ application, index }) => {
-  const { jobId, company, title, resume } = application;
+  const { job, resume } = application;
 
   return (
-    <tr className="align-middle">
-      <th className="align-middle text-center">
-        <label>{index + 1}</label>
-      </th>
-      <td className="align-middle">
+    <tr>
+      <th>{index + 1}</th>
+
+      <td>
         <div className="flex items-center gap-4">
-          <div className="avatar">
-            <div className="mask mask-squircle h-12 w-12">
-              <img src={company.logo} alt="Company Logo" />
-            </div>
-          </div>
+          <img
+            src={job?.company?.logo || "/placeholder-logo.png"}
+            className="w-12 h-12"
+            alt="Company"
+          />
           <div>
-            <div className="font-bold">{company.name}</div>
-            <div className="text-sm opacity-50">HR: {company?.hr_name}</div>
+            <p className="font-bold">{job?.company?.name}</p>
+            <p className="text-sm opacity-50">HR: {job?.company?.hr_name}</p>
           </div>
         </div>
       </td>
-      <td>{title}</td>
-      <td className="align-middle whitespace-nowrap">
-        <a
-          href={resume}
-          target="_blank"
-          rel="noreferrer"
-          className="text-blue-500 underline"
-        >
+
+      <td>{job?.title}</td>
+
+      <td>
+        <a href={resume} target="_blank" rel="noreferrer">
           View Resume
         </a>
       </td>
-      <td className="align-middle text-right">
-        <Link to={`/jobs/${jobId}`}>
-          <button className="btn btn-primary btn-sm">Show Details</button>
+
+      <td>
+        <Link to={`/jobs/${job?._id}`}>
+          <button className="btn btn-sm btn-primary">Show Details</button>
         </Link>
       </td>
     </tr>

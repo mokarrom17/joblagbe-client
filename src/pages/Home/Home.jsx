@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Banner from "./Banner";
 import Category from "./Category";
 import HotJobs from "./HotJobs";
+import Newsletter from "./Newsletter";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -30,6 +31,7 @@ const Home = () => {
       ) : (
         <HotJobs jobs={jobs} />
       )}
+      <Newsletter></Newsletter>
     </div>
   );
 };
