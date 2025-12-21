@@ -1,5 +1,5 @@
 
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
 import finance from "../../assets/category/finance.jpg";
 import software from "../../assets/category/software.jpg";
 import hr from "../../assets/category/human.jpg";
@@ -23,7 +23,7 @@ const Category = () => {
 
       {/* Grid of Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 px-12 mb-20">
-        <motion.div whileHover={{ scale: 1.03 }}>
+        <Motion.div whileHover={{ scale: 1.03 }}>
           {/* Finance */}
           <div className="card flex flex-row gap-2 w-full bg-base-100 card-xs shadow-sm mb-4 p-4">
             <div>
@@ -44,9 +44,9 @@ const Category = () => {
               <p>1856 Jobs Available</p>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div whileHover={{ scale: 1.03 }}>
+        <Motion.div whileHover={{ scale: 1.03 }}>
           {/* Human Resources */}
           <div className="card w-full bg-base-100 card-xs shadow-sm mb-4 p-4">
              <div>
@@ -68,9 +68,9 @@ const Category = () => {
               <p>965 Jobs Available</p>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div whileHover={{ scale: 1.03 }}>
+        <Motion.div whileHover={{ scale: 1.03 }}>
           {/* Retail & Products */}
           <div className="card w-full bg-base-100 card-xs shadow-sm mb-4 p-4">
              <div>
@@ -92,9 +92,9 @@ const Category = () => {
               <p>254 Jobs Available</p>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
 
-        <motion.div whileHover={{ scale: 1.03 }}>
+        <Motion.div whileHover={{ scale: 1.03 }}>
           {/* Content Writer */}
           <div className="card flex flex-row w-full bg-base-100 card-xs shadow-sm mb-4 p-4">
              <div>
@@ -116,8 +116,8 @@ const Category = () => {
               <p>532 Jobs Available</p>
             </div>
           </div>
-        </motion.div>
-        <motion.div whileHover={{ scale: 1.03 }}>
+        </Motion.div>
+        <Motion.div whileHover={{ scale: 1.03 }}>
           {/* Marketing & Sales */}
           <div className="card w-full bg-base-100 card-xs shadow-sm mb-4 p-4">
              <div>
@@ -139,7 +139,7 @@ const Category = () => {
               <p>185 Jobs Available</p>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
     </div>
   );

@@ -1,4 +1,6 @@
-import { motion } from "framer-motion";
+import { motion as Motion } from "framer-motion";
+import { MdOutlineDownloading } from "react-icons/md";
+
 import React, { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -40,7 +42,7 @@ const Blog = () => {
       >
         {blogs.map((blog) => (
           <SwiperSlide key={blog._id} className="px-2 h-140">
-            <motion.div
+            <Motion.div
               className="border-2 border-[#E5E7EB] rounded-xl h-full flex flex-col p-4 bg-white"
               whileHover={{
                 y: -6,
@@ -48,7 +50,7 @@ const Blog = () => {
               }}
               transition={{ duration: 0.25, ease: "easeOut" }}
             >
-              <motion.img
+              <Motion.img
                 src={blog.thumbnail}
                 alt={blog.title}
                 className="h-48 w-full object-cover rounded-lg mb-4"
@@ -80,10 +82,15 @@ const Blog = () => {
                 </div>
                 <span className="ml-auto text-sm">{blog.readTime}</span>
               </div>
-            </motion.div>
+              
+            </Motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
+      <button className="btn btn-xs sm:btn-sm lg:btn-md bg-[#05264E] hover:bg-[#007aff] text-white mt-8 mx-auto flex items-center gap-2">
+        <MdOutlineDownloading className="text-lg" />
+        <span>Load More Posts</span>
+      </button>
     </div>
   );
 };
