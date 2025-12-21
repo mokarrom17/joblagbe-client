@@ -8,11 +8,11 @@ const AllJobs = () => {
   const [salary, setSalary] = useState(280);
 
   return (
-    <div className="max-w-7xl mx-auto my-10 flex gap-10">
+    <div className="max-w-2xl md:max-w-5xl lg:max-w-7xl my-10 flex gap-10 mx-12">
       <div className="w-1/3 ">
         <div className="flex justify-between">
           <h2 className="text-3xl font-bold ">Advance Filter</h2>
-          <a className="link link-primary mt-4 mr-4">Reset</a>
+          <a className="link link-primary text-lg mt-4 mr-4">Reset</a>
         </div>
         <div className="divider"></div>
         <div className="bg-base-100 p-6 rounded-xl shadow-sm">

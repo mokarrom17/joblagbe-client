@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import Category from "./Category";
 import HotJobs from "./HotJobs";
 import Newsletter from "./Newsletter";
+import Blog from "./Blog";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -31,6 +32,7 @@ const Home = () => {
       ) : (
         <HotJobs jobs={jobs} />
       )}
+      <Blog></Blog>
       <Newsletter></Newsletter>
     </div>
   );

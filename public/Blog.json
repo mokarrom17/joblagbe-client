@@ -1,0 +1,115 @@
+[
+  {
+    "_id": "blog_001",
+    "category": "News",
+    "title": "Interview Question: Why Don’t You Have a Degree?",
+    "excerpt": "Learn how to respond confidently if an interviewer asks why you don’t have a degree. Includes practical tips and example answers to help you turn this question into a strength.",
+    "thumbnail": "https://i.ibb.co.com/DP4H0pRp/bn1.png",
+    "author": {
+      "name": "William Kend",
+      "avatar": "https://i.ibb.co.com/YB12cSDn/user1.jpg"
+    },
+    "publishedDate": "2025-09-06",
+    "readTime": "9 mins read",
+    "slug": "interview-question-no-degree"
+  },
+  {
+    "_id": "blog_002",
+    "category": "News",
+    "title": "21 Job Interview Tips: How to Make a Great Impression",
+    "excerpt": "Discover 21 proven job interview tips that will help you stand out, communicate confidently, and leave a lasting positive impression on interviewers.",
+    "thumbnail": "https://i.ibb.co.com/bgkjBN0P/bn2.png",
+    "author": {
+      "name": "Sarah Harding",
+      "avatar": "https://i.ibb.co.com/5hFMWk1b/user2.jpg"
+    },
+    "publishedDate": "2025-09-06",
+    "readTime": "8 mins read",
+    "slug": "job-interview-tips-great-impression"
+  },
+  {
+    "_id": "blog_003",
+    "category": "Events",
+    "title": "39 Strengths and Weaknesses to Discuss in a Job Interview",
+    "excerpt": "A comprehensive list of professional strengths and weaknesses you can confidently discuss in interviews, with guidance on how to present them effectively.",
+    "thumbnail": "https://i.ibb.co.com/rrNM1rq/bn3.png",
+    "author": {
+      "name": "Steven Jobs",
+      "avatar": "https://i.ibb.co.com/cKfKjbW1/user3.jpg"
+    },
+    "publishedDate": "2025-09-06",
+    "readTime": "6 mins read",
+    "slug": "strengths-weaknesses-job-interview"
+  },
+   {
+    "_id": "blog_004",
+    "category": "Career",
+    "title": "How to Prepare for Your First Job Interview",
+    "excerpt": "Preparing for your first job interview can feel overwhelming. This guide walks you through research techniques, common interview questions, body language tips, and follow-up strategies to help you feel confident and prepared.",
+    "thumbnail": "https://images.unsplash.com/photo-1522071820081-009f0129c71c",
+    "author": {
+      "name": "Emily Watson",
+      "avatar": "https://randomuser.me/api/portraits/women/68.jpg"
+    },
+    "publishedDate": "2025-10-01",
+    "readTime": "7 mins read",
+    "slug": "prepare-first-job-interview"
+  },
+  {
+    "_id": "blog_005",
+    "category": "Guides",
+    "title": "Top Skills Employers Look for in 2025",
+    "excerpt": "Employers in 2025 prioritize a balance of technical expertise and soft skills. Learn which skills are most in demand and how you can start developing them today to stay competitive in the job market.",
+    "thumbnail": "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "author": {
+      "name": "Michael Brown",
+      "avatar": "https://randomuser.me/api/portraits/men/41.jpg"
+    },
+    "publishedDate": "2025-10-04",
+    "readTime": "6 mins read",
+    "slug": "top-skills-employers-2025"
+  },
+  {
+    "_id": "blog_006",
+    "category": "Remote Work",
+    "title": "Remote Jobs: How to Stay Productive While Working From Home",
+    "excerpt": "Working from home requires discipline and structure. This article shares proven productivity strategies, workspace setup tips, and time management techniques for remote professionals.",
+    "thumbnail": "https://images.unsplash.com/photo-1587614382346-4ec70e388b28",
+    "author": {
+      "name": "Daniel Lee",
+      "avatar": "https://randomuser.me/api/portraits/men/55.jpg"
+    },
+    "publishedDate": "2025-10-08",
+    "readTime": "5 mins read",
+    "slug": "remote-work-productivity-tips"
+  },
+  {
+    "_id": "blog_007",
+    "category": "Resume",
+    "title": "Resume Mistakes That Are Costing You Job Interviews",
+    "excerpt": "Small resume mistakes can silently eliminate you from job opportunities. Learn the most common resume errors and how to fix them to increase your chances of getting interview calls.",
+    "thumbnail": "https://images.unsplash.com/photo-1586281380349-632531db7ed4",
+    "author": {
+      "name": "Sophia Martinez",
+      "avatar": "https://randomuser.me/api/portraits/women/52.jpg"
+    },
+    "publishedDate": "2025-10-10",
+    "readTime": "8 mins read",
+    "slug": "resume-mistakes-job-interviews"
+  },
+  {
+  "_id": "blog_008",
+  "category": "Interview",
+  "title": "How to Answer Behavioral Interview Questions Effectively",
+  "excerpt": "Behavioral interview questions test how you handle real-world situations. This guide explains the STAR method and provides examples to help you answer confidently and professionally.",
+  "thumbnail": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1200&auto=format&fit=crop",
+  "author": {
+    "name": "James Carter",
+    "avatar": "https://randomuser.me/api/portraits/men/62.jpg"
+  },
+  "publishedDate": "2025-10-12",
+  "readTime": "9 mins read",
+  "slug": "behavioral-interview-questions"
+}
+
+]
