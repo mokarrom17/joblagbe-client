@@ -23,9 +23,13 @@ const JobApplicationRow = ({ application, index }) => {
       </td>
 
       <td>{job?.title}</td>
-
       <td>
-        <a href={resume} target="_blank" rel="noreferrer">
+        <a
+          href={resume}
+          target="_blank"
+          rel="noreferrer"
+          className="text-blue-500 underline"
+        >
           View Resume
         </a>
       </td>
