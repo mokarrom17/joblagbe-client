@@ -11,7 +11,7 @@ const MyApplications = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/my-applications?email=${user.email}`)
+    fetch(`http://localhost:3000/applications?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("✅ Applications:", data);

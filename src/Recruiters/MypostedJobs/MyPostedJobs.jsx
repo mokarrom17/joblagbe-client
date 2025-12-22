@@ -10,12 +10,18 @@ const MyPostedJobs = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/jobs/applications?email=${user.email}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log("✅ Posted jobs:", data);
-        setJobs(data);
-        setLoading(false);
+    fetch(`http://localhost:3000/jobsByEmailAddress?email=${user.email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Jobs API response:", data);
+
+        setJobs(Array.isArray(data) ? data : []);
+        setLoading(false); // ✅ STOP LOADING
+      })
+      .catch((err) => {
+        console.error(err);
+        setJobs([]);
+        setLoading(false); // ✅ STOP LOADING EVEN ON ERROR
       });
   }, [user?.email]);
 
