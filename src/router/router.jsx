@@ -74,10 +74,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "applications/:job_id",
+        path: "/applications/:job_id",
         element: (
           <PrivateRoutes>
-            <ViewApplications></ViewApplications>
+            <ViewApplications />
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
