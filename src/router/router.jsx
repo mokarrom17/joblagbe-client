@@ -12,6 +12,8 @@ import MyPostedJobs from "../Recruiters/MypostedJobs/MyPostedJobs";
 import ViewApplications from "../pages/ViewApplications/viewApplications";
 import AllJobs from "../pages/AllJobs/AllJobs";
 import AllBlogs from "../pages/AllBlogs/AllBlogs";
+import BlogDetails from "../pages/BlogDetails/BlogDetails";
+
 
 const router = createBrowserRouter([
   {
@@ -33,6 +35,12 @@ const router = createBrowserRouter([
       {
         path:"/blogs",
         Component:AllBlogs
+      },
+      {
+        path:"/blog/:id",
+        Component:BlogDetails,
+        loader: ({params}) => 
+          fetch(`http://localhost:3000/blogs/${params.id}`)
       },
       {
         path: "/jobs/:id",

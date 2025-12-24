@@ -17,7 +17,7 @@ const Blog = () => {
   const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
-    fetch("/Blog.json")
+    fetch("http://localhost:3000/blogs")
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);
