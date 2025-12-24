@@ -38,7 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/allJobs",
         Component: AllJobs,
-        loader: () => fetch("http://localhost:3000/jobs"),
+        loader: async () => {
+          const res = await fetch("http://localhost:3000/jobs");
+          return res.json(); // ✔ MUST parse JSON
+        },
       },
       {
         path: "/job-apply/:id",

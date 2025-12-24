@@ -1,4 +1,4 @@
-import {  useLoaderData } from "react-router";
+import { useLoaderData } from "react-router";
 import { IoBriefcaseOutline } from "react-icons/io5";
 import { LiaIndustrySolid } from "react-icons/lia";
 import { BsCoin } from "react-icons/bs";
@@ -21,7 +21,6 @@ const JobDetails = () => {
   const job = useLoaderData();
 
   const [relatedJobs, setRelatedJobs] = useState([]);
-
   useEffect(() => {
     if (!job) return; // wait for main job to load
 
@@ -33,6 +32,11 @@ const JobDetails = () => {
         setRelatedJobs(filtered);
       });
   }, [job]);
+
+  // SAFE GUARD
+  if (!job || !job.salaryRange) {
+    return <p className="text-center mt-10">Loading job details...</p>;
+  }
 
   return (
     <div className="px-10">

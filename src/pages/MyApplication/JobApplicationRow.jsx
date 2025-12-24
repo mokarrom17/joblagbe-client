@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const JobApplicationRow = ({ application, index }) => {
-  const { company, title, resume, _id } = application;
+  const { company, title, resume, _id, jobId } = application;
+
 
   return (
     <tr>
@@ -35,7 +36,7 @@ const JobApplicationRow = ({ application, index }) => {
       </td>
 
       <td>
-        <Link to={`/jobs/${_id}`}>
+        <Link to={`/jobs/${jobId}`}>
           <button className="btn btn-sm btn-primary">Show Details</button>
         </Link>
       </td>
