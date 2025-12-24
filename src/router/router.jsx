@@ -13,6 +13,7 @@ import ViewApplications from "../pages/ViewApplications/viewApplications";
 import AllJobs from "../pages/AllJobs/AllJobs";
 import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
+import AboutUs from "../pages/StaticPages/AboutUs";
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/signIn",
         Component: SIgnIn,
+      },
+      {
+        path:"/aboutUs",
+        Component:AboutUs
       },
       {
         path:"/blogs",

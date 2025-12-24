@@ -92,6 +92,23 @@ const AllBlogs = () => {
               />
               <IoSearchOutline className="text-2xl" />
             </div>
+            {/* Gallery Section */}
+            <div className="mt-10">
+              <h2 className="text-xl font-semibold mb-4 text-[#0A2E5C]">
+                Gallery
+              </h2>
+
+              <div className="grid grid-cols-3 gap-3">
+                {blogs.slice(0, 9).map((blog, index) => (
+                  <img
+                    key={index}
+                    src={blog.thumbnail}
+                    alt=""
+                    className="w-full h-20 object-cover rounded-lg hover:opacity-80 transition"
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
         <Newsletter />
