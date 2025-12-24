@@ -12,6 +12,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
 import { Link } from "react-router-dom";
+
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -45,7 +46,7 @@ const Blog = () => {
             <Motion.div
               className="border-2 border-[#E5E7EB] rounded-xl h-full flex flex-col p-4 bg-white"
               whileHover={{
-                y: -6,
+                y: -1,
                 boxShadow: "0px 20px 40px rgba(0,0,0,0.12)",
               }}
               transition={{ duration: 0.25, ease: "easeOut" }}
@@ -82,15 +83,16 @@ const Blog = () => {
                 </div>
                 <span className="ml-auto text-sm">{blog.readTime}</span>
               </div>
-              
             </Motion.div>
           </SwiperSlide>
         ))}
       </Swiper>
-      <button className="btn btn-xs sm:btn-sm lg:btn-md bg-[#05264E] hover:bg-[#007aff] text-white mt-8 mx-auto flex items-center gap-2">
-        <MdOutlineDownloading className="text-lg" />
-        <span>Load More Posts</span>
-      </button>
+      <Link to="/blogs">
+        <button className="btn btn-xs sm:btn-sm lg:btn-md bg-[#05264E] hover:bg-[#007aff] text-white mt-8 mx-auto flex items-center gap-2">
+          <MdOutlineDownloading className="text-lg" />
+          <span>Load More Posts</span>
+        </button>
+      </Link>
     </div>
   );
 };

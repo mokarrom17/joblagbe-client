@@ -41,7 +41,7 @@ const NavBar = () => {
             <NavLink to="/myPostedJobs">My Posted Jobs</NavLink>
           </li>
           <li>
-            <NavLink>Blog</NavLink>
+            <NavLink to="/blogs">Blog</NavLink>
           </li>
         </>
       )}
