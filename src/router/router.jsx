@@ -16,6 +16,7 @@ import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import AboutUs from "../pages/StaticPages/AboutUs";
 import ContactUs from "../pages/StaticPages/ContactUs";
 import OurTeam from "../pages/StaticPages/OurTeam";
+import Testimonials from "../pages/StaticPages/Testimonials";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path:"/contactUs",
         Component:ContactUs
+      },
+      {
+        path:"/testimonials",
+        Component:Testimonials
       },
       {
         path:"/blogs",

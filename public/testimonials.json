@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Mark Adair",
+    "role": "Businessman",
+    "image": "https://randomuser.me/api/portraits/men/45.jpg",
+    "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque metus. Vivamus consectetur ultricies commodo. Pellentesque at nisl sit amet neque finibus egestas ut at magna. Cras tincidunt tortor sed eros aliquam eleifend."
+  },
+  {
+    "id": 2,
+    "name": "Mark Adair",
+    "role": "Businessman",
+    "image": "https://randomuser.me/api/portraits/women/65.jpg",
+    "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque metus. Vivamus consectetur ultricies commodo. Pellentesque at nisl sit amet neque finibus egestas ut at magna. Cras tincidunt tortor sed eros aliquam eleifend."
+  },
+  {
+    "id": 3,
+    "name": "Mark Adair",
+    "role": "Businessman",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg",
+    "message": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae neque metus. Vivamus consectetur ultricies commodo. Pellentesque at nisl sit amet neque finibus egestas ut at magna. Cras tincidunt tortor sed eros aliquam eleifend."
+  },
+   {
+    "id": 4,
+    "name": "Rahim Uddin",
+    "role": "Startup Founder",
+    "image": "https://randomuser.me/api/portraits/men/76.jpg",
+    "message": "Working with this platform has significantly simplified our hiring process. The interface is clean, easy to navigate, and provides exactly the tools we need to find the right talent efficiently."
+  },
+  {
+    "id": 5,
+    "name": "Nabila Sultana",
+    "role": "HR Manager",
+    "image": "https://randomuser.me/api/portraits/women/81.jpg",
+    "message": "As an HR professional, I truly appreciate how intuitive and reliable this job portal is. Posting jobs and managing applications has never been this smooth and time-saving."
+  },
+  {
+    "id": 6,
+    "name": "Tanvir Hasan",
+    "role": "Software Engineer",
+    "image": "https://randomuser.me/api/portraits/men/83.jpg",
+    "message": "This platform helped me land my current role quickly. The job recommendations were relevant, and the application process was straightforward and stress-free."
+  },
+  {
+    "id": 7,
+    "name": "Farzana Akter",
+    "role": "UI/UX Designer",
+    "image": "https://randomuser.me/api/portraits/women/89.jpg",
+    "message": "I love the modern design and user-friendly experience. Everything feels well thought out, from browsing jobs to applying and tracking application status."
+  },
+  {
+    "id": 8,
+    "name": "Imran Khan",
+    "role": "Business Consultant",
+    "image": "https://randomuser.me/api/portraits/men/91.jpg",
+    "message": "The quality of candidates we received through this platform exceeded our expectations. It has become an essential part of our recruitment strategy."
+  },
+  {
+    "id": 9,
+    "name": "Sadia Rahman",
+    "role": "Marketing Executive",
+    "image": "https://randomuser.me/api/portraits/women/95.jpg",
+    "message": "From job alerts to application tracking, everything works seamlessly. I highly recommend this platform to job seekers looking for a smooth experience."
+  }
+]

@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom";
 import banner from "../../assets/Static/about-banner.jpeg";
 import img from "../../assets/Static/img-about2.png";
+import ContactUs from "./ContactUs";
+import OurTeam from "./OurTeam";
+import Newsletter from "../Home/Newsletter";
+import Blog from "../Home/Blog";
+import Testimonials from "./Testimonials";
 
 
 const AboutUs = () => {
@@ -56,6 +61,10 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+      <OurTeam></OurTeam>
+      <Blog></Blog>
+      <Testimonials></Testimonials>
+      <Newsletter></Newsletter>
     </div>
   );
 };
