@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Mokarrom Basher",
+    "role": "Frontend Developer",
+    "rating": 5,
+    "reviews": 48,
+    "location": "Dhaka, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/men/11.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Nusrat Jahan",
+    "role": "UI/UX Designer",
+    "rating": 5,
+    "reviews": 36,
+    "location": "Dhaka, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/women/21.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Tanvir Ahmed",
+    "role": "MERN Stack Developer",
+    "rating": 5,
+    "reviews": 52,
+    "location": "Chattogram, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/men/32.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Sadia Akter",
+    "role": "Frontend Developer",
+    "rating": 4,
+    "reviews": 29,
+    "location": "Rajshahi, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/women/45.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Rakib Hasan",
+    "role": "Backend Developer",
+    "rating": 5,
+    "reviews": 41,
+    "location": "Sylhet, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/men/55.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Farzana Islam",
+    "role": "Quality Assurance Engineer",
+    "rating": 4,
+    "reviews": 26,
+    "location": "Khulna, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/women/63.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Mahmudul Hasan",
+    "role": "DevOps Engineer",
+    "rating": 5,
+    "reviews": 33,
+    "location": "Dhaka, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/men/71.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Jannatul Ferdous",
+    "role": "Product Manager",
+    "rating": 5,
+    "reviews": 38,
+    "location": "Barishal, Bangladesh",
+    "image": "https://randomuser.me/api/portraits/women/74.jpg"
+  }
+]

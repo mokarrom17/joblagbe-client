@@ -37,7 +37,7 @@ const Footer = () => {
         <nav>
           <h6 className="footer-title">Resources</h6>
           <Link to="/aboutUs">About Us</Link>
-          <Link>Our Team</Link>
+          <Link to="/ourTeam">Our Team</Link>
           <Link>Products</Link>
           <Link to="/contactUs">Contact</Link>
         </nav>

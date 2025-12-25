@@ -15,6 +15,7 @@ import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
 import AboutUs from "../pages/StaticPages/AboutUs";
 import ContactUs from "../pages/StaticPages/ContactUs";
+import OurTeam from "../pages/StaticPages/OurTeam";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path:"/aboutUs",
         Component:AboutUs
+      },
+      {
+        path:"/ourTeam",
+        Component:OurTeam
       },
       {
         path:"/contactUs",
