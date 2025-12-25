@@ -17,6 +17,7 @@ import AboutUs from "../pages/StaticPages/AboutUs";
 import ContactUs from "../pages/StaticPages/ContactUs";
 import OurTeam from "../pages/StaticPages/OurTeam";
 import Testimonials from "../pages/StaticPages/Testimonials";
+import Error404 from "../pages/StaticPages/Error404";
 
 
 const router = createBrowserRouter([
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
       {
         path:"/ourTeam",
         Component:OurTeam
+      },
+      {
+        path:"/error",
+        Component:Error404
       },
       {
         path:"/contactUs",

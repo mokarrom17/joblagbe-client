@@ -38,7 +38,7 @@ const Testimonials = () => {
                 <div className={'relative border rounded-xl p-4 text-[#66789C] leading-7 bg-white'}>
                     <p className="line-clamp-4">{item.message}</p>
                   {/* Arrow */}
-                  <span className="absolute left-8 -bottom-2 w-4 h-4 bg-white border-l border-b rotate-45 -translate-x-1/2"></span>
+                  <span className="absolute left-8 -bottom-2 w-3 h-4 bg-white border-l border-b rotate-310 -translate-x-1/2"></span>
                 </div>
 
                 {/* User Info */}
