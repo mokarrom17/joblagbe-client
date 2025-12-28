@@ -67,9 +67,7 @@ const Blog = () => {
                 {blog.title}
               </h2>
 
-              <p className="text-gray-600 line-clamp-4 min-h-24">
-                {blog.excerpt}
-              </p>
+              <p className="text-color line-clamp-4 min-h-24">{blog.excerpt}</p>
 
               <div className="mt-auto pt-4 flex items-center gap-4">
                 <img

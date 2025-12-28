@@ -23,51 +23,66 @@ const JobCard = ({ job }) => {
   };
 
   return (
-    <div className="card bg-base-100 w-full shadow-sm h-full hover:shadow-lg transition-shadow duration-300">
-      <div className="flex items-center gap-4 p-4">
-        <figure>
-          <img
-            className="w-20"
-            src={company.logo || "https://via.placeholder.com/80"}
-            alt="logo"
-          />
-        </figure>
+    <div
+      className="bg-white border border-gray-200 rounded-xl p-5 shadow-[0_8px_24px_rgba(149,157,165,0.15)] 
+  hover:shadow-[0_12px_32px_rgba(149,157,165,0.25)]  hover:border-primary/40 transition"
+    >
+      {/* Header */}
+      <div className="flex items-center gap-4">
+        <img
+          className="w-12 h-12 rounded-lg object-contain"
+          src={company.logo || "https://via.placeholder.com/80"}
+          alt="logo"
+        />
+
         <div>
-          <h3 className="text-2xl font-bold">{company.name || "Company"}</h3>
-          <p className="flex items-center">
-            <CiLocationOn /> {location}
+          <h3 className="text-lg font-semibold leading-tight">
+            {company.name || "Company"}
+          </h3>
+          <p className="flex items-center text-xs text-gray-500 mt-1">
+            <CiLocationOn className="mr-1" /> {location}
           </p>
         </div>
       </div>
 
-      <div className="card-body">
-        <h2 className="card-title">{title}</h2>
-        <p>{truncateWords(description, 10)}</p>
+      {/* Job title */}
+      <Link to={`/jobs/${_id}`}>
+        <h2 className="text-base font-medium mt-4">{title}</h2>
+      </Link>
 
-        <div className="card-actions">
-          {requirements.slice(0, 2).map((skill, index) => (
-            <span
-              key={index}
-              className="badge badge-outline bg-[#EFF3FC] text-[#4F5E64] font-medium"
-            >
-              {skill}
-            </span>
-          ))}
-        </div>
+      {/* Description */}
+      <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+        {truncateWords(description, 14)}
+      </p>
 
-        <p>
-          Salary:{" "}
-          {salaryRange.min
-            ? `${salaryRange.min} - ${salaryRange.max} ${salaryRange.currency}`
-            : "Negotiable"}
-        </p>
-
-        <div className="card-actions justify-end">
-          <Link to={`/jobs/${_id}`}>
-            <button className="btn btn-primary">Show Details</button>
-          </Link>
-        </div>
+      {/* Skills */}
+      <div className="flex flex-wrap gap-2 mt-4">
+        {requirements.slice(0, 2).map((skill, index) => (
+          <span
+            key={index}
+            className="px-3 py-1 text-xs rounded-full bg-gray-100 text-gray-700"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
+
+      {/* Salary */}
+      <p className="text-sm text-gray-500 mt-4">
+        Salary:{" "}
+        <span className="font-medium text-gray-800">
+          {salaryRange.min
+            ? `${salaryRange.min} – ${salaryRange.max} ${salaryRange.currency}`
+            : "Negotiable"}
+        </span>
+      </p>
+
+      {/* Action */}
+      <Link to={`/jobs/${_id}`} className="block mt-5">
+        <button className="btn btn-sm bg-[#007aff] text-white hover:bg-[#05264E] w-full font-medium">
+          View Details
+        </button>
+      </Link>
     </div>
   );
 };

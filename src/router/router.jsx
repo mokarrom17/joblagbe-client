@@ -9,7 +9,7 @@ import PrivateRoutes from "../routes/PrivateRoutes";
 import MyApplications from "../pages/MyApplication/MyApplications";
 import AddJobs from "../Recruiters/AddJobs/AddJobs";
 import MyPostedJobs from "../Recruiters/MypostedJobs/MyPostedJobs";
-import ViewApplications from "../pages/ViewApplications/viewApplications";
+
 import AllJobs from "../pages/AllJobs/AllJobs";
 import AllBlogs from "../pages/AllBlogs/AllBlogs";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
@@ -18,7 +18,7 @@ import ContactUs from "../pages/StaticPages/ContactUs";
 import OurTeam from "../pages/StaticPages/OurTeam";
 import Testimonials from "../pages/StaticPages/Testimonials";
 import Error404 from "../pages/StaticPages/Error404";
-
+import ViewApplications from "../pages/ViewApplications/ViewApplications";
 
 const router = createBrowserRouter([
   {
@@ -38,34 +38,34 @@ const router = createBrowserRouter([
         Component: SIgnIn,
       },
       {
-        path:"/aboutUs",
-        Component:AboutUs
+        path: "/aboutUs",
+        Component: AboutUs,
       },
       {
-        path:"/ourTeam",
-        Component:OurTeam
+        path: "/ourTeam",
+        Component: OurTeam,
       },
       {
-        path:"/error",
-        Component:Error404
+        path: "/error",
+        Component: Error404,
       },
       {
-        path:"/contactUs",
-        Component:ContactUs
+        path: "/contactUs",
+        Component: ContactUs,
       },
       {
-        path:"/testimonials",
-        Component:Testimonials
+        path: "/testimonials",
+        Component: Testimonials,
       },
       {
-        path:"/blogs",
-        Component:AllBlogs
+        path: "/blogs",
+        Component: AllBlogs,
       },
       {
-        path:"/blog/:id",
-        Component:BlogDetails,
-        loader: ({params}) => 
-          fetch(`http://localhost:3000/blogs/${params.id}`)
+        path: "/blog/:id",
+        Component: BlogDetails,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/blogs/${params.id}`),
       },
       {
         path: "/jobs/:id",
@@ -118,7 +118,7 @@ const router = createBrowserRouter([
         path: "/applications/:job_id",
         element: (
           <PrivateRoutes>
-            <ViewApplications />
+            <ViewApplications></ViewApplications>
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
