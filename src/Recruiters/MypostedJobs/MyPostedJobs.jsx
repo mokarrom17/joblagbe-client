@@ -13,8 +13,6 @@ const MyPostedJobs = () => {
     fetch(`http://localhost:3000/jobsByEmailAddress?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("Jobs API response:", data);
-
         setJobs(Array.isArray(data) ? data : []);
         setLoading(false); // ✅ STOP LOADING
       })

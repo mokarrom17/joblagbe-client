@@ -14,7 +14,6 @@ const MyApplications = () => {
     fetch(`http://localhost:3000/applications?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log("✅ Applications:", data);
         setApplications(data);
         setDataLoading(false);
       });
