@@ -229,22 +229,27 @@ const JobDetails = () => {
         </p>
       </div>
 
-      <Swiper
-        spaceBetween={20}
-        slidesPerView={1}
-        breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-          1280: { slidesPerView: 4 },
-        }}
-        className="my-10 px-5"
-      >
-        {relatedJobs.map((item) => (
-          <SwiperSlide key={item._id}>
-            <JobCard job={item} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <div className="my-10 px-5">
+        <Swiper
+          slidesPerView={1}
+          loop={relatedJobs.length > 4}
+          breakpoints={{
+            640: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
+          }}
+        >
+          {relatedJobs.map((item) => (
+            <SwiperSlide key={item._id} className="h-auto">
+              <Link to={`/jobs/${item._id}`}>
+                <div className="h-full">
+                  <JobCard job={item} />
+                </div>
+              </Link>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
