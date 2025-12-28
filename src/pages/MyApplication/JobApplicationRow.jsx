@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const JobApplicationRow = ({ application, index }) => {
   const { company, title, resume, _id, jobId } = application;
 
-
   return (
     <tr>
       <th>{index + 1}</th>

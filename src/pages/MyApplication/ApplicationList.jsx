@@ -16,11 +16,7 @@ const ApplicationList = ({ applications }) => {
 
         <tbody>
           {applications.map((app, index) => (
-            <JobApplicationRow
-              key={app._id}
-              application={app}
-              index={index}
-            />
+            <JobApplicationRow key={app._id} application={app} index={index} />
           ))}
         </tbody>
       </table>
