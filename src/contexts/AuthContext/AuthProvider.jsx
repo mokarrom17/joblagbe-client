@@ -9,13 +9,12 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.init";
-import axios from "axios";
 
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   const createUser = (email, password) => {
     setLoading(true);
@@ -29,52 +28,36 @@ const AuthProvider = ({ children }) => {
 
   const signInWithGoogle = () => {
     setLoading(true);
-    return signInWithPopup(auth, googleProvider)
-  }
+    return signInWithPopup(auth, googleProvider);
+  };
 
   const signOutUser = () => {
-    setLoading (true)
-    return signOut(auth)
-  }
+    setLoading(true);
+    return signOut(auth);
+  };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      console.log("user in the auth state change", currentUser);
+    });
 
-
-  useEffect(()=>{
-    const unsubscribe = onAuthStateChanged(auth, currentUser=>{
-        setUser(currentUser)
-        setLoading(false)
-        if(currentUser?.email){
-          const userData = {email: currentUser.email}
-          axios.post('http://localhost:3000/jwt',userData, {
-            withCredentials: true
-          })
-          .then(res => {
-            console.log(res.data)
-          })
-          .catch(error => console.log(error))
-        }
-        console.log("User in the auth state change", currentUser)
-    }) 
-    return () => {
-        unsubscribe()
-    }
-  })
+    return () => unsubscribe();
+  }, []);
 
   const authInfo = {
     loading,
     user,
     createUser,
     signInUser,
-    signOutUser ,
+    signOutUser,
     signInWithGoogle,
   };
 
   return (
-  <AuthContext.Provider value={authInfo}>
-    {children}
-  </AuthContext.Provider>
-);
-
+    <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
+  );
 };
 
 export default AuthProvider;

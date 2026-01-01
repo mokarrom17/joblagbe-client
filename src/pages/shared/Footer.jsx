@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/Footer btn/webLogo.jpg"
+import logo from "../../assets/Footer btn/webLogo.jpg";
 import { FaFacebook } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div className="mt-12 px-12">
+    <div className="my-12 px-12">
       <footer className="footer sm:footer-horizontal bg-base-200 text-base-content px-10 py-16">
         <aside className="w-64">
           <img className="w-36" src={logo} alt="JobHub Logo" />

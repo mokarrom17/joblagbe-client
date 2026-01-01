@@ -9,18 +9,19 @@ const MyApplications = () => {
   const [dataLoading, setDataLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) return;
-
+    if (!user?.email || !user?.accessToken) return;
     fetch(`http://localhost:3000/applications?email=${user.email}`, {
-      method: "GET",
-      credentials: "include",
+      // credentials: "include",
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
         setApplications(data);
         setDataLoading(false);
       });
-  }, [user?.email]);
+  }, [user?.email, user?.accessToken]);
 
   if (loading || dataLoading) {
     return <p className="text-center mt-10">Loading applications...</p>;

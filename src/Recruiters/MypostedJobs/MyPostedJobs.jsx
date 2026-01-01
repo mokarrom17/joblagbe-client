@@ -8,9 +8,13 @@ const MyPostedJobs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!user?.email) return;
+    if (!user?.email || !user?.accessToken) return;
 
-    fetch(`http://localhost:3000/jobsByEmailAddress?email=${user.email}`)
+    fetch(`http://localhost:3000/jobsByEmailAddress?email=${user.email}`, {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setJobs(Array.isArray(data) ? data : []);
@@ -29,9 +33,7 @@ const MyPostedJobs = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-6">
-        My Posted Jobs: {jobs.length}
-      </h2>
+      <h2 className="text-2xl font-bold mb-6">My Posted Jobs: {jobs.length}</h2>
 
       <MyPostedJobsList jobs={jobs} />
     </div>
