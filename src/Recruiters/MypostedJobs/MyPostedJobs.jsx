@@ -25,7 +25,7 @@ const MyPostedJobs = () => {
         setJobs([]);
         setLoading(false); // ✅ STOP LOADING EVEN ON ERROR
       });
-  }, [user?.email]);
+  }, [user?.email, user?.accessToken]);
 
   if (loading) {
     return <p className="text-center mt-10">Loading posted jobs...</p>;
