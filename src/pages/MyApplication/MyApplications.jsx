@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import ApplicationStats from "./ApplicationStats";
 import ApplicationList from "./ApplicationList";
 import { AuthContext } from "../../contexts/AuthContext/AuthContext";
-import useUserApplicationApi from "../../CustomHooks/userApplicationApi";
+import useUserApplicationApi from "../../CustomHooks/useApplicationApi";
 
 const MyApplications = () => {
   const { user, loading } = useContext(AuthContext);

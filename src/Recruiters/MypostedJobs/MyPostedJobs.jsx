@@ -1,33 +1,31 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import MyPostedJobsList from "./MyPostedJobsList";
+import useJobApi from "../../CustomHooks/useJobApi";
 
 const MyPostedJobs = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [dataLoading, setDataLoading] = useState(true);
+  const { getMyJobs } = useJobApi();
 
   useEffect(() => {
-    if (!user?.email || !user?.accessToken) return;
+    if (authLoading || !user?.email) return;
 
-    fetch(`http://localhost:3000/jobsByEmailAddress?email=${user.email}`, {
-      headers: {
-        authorization: `Bearer ${user.accessToken}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(Array.isArray(data) ? data : []);
-        setLoading(false); // ✅ STOP LOADING
-      })
-      .catch((err) => {
-        console.error(err);
-        setJobs([]);
-        setLoading(false); // ✅ STOP LOADING EVEN ON ERROR
-      });
-  }, [user?.email, user?.accessToken]);
+    const loadJobs = async () => {
+      try {
+        const data = await getMyJobs(user.email);
+        setJobs(data);
+      } catch (error) {
+        console.error("Failed to load posted jobs:", error.message);
+      } finally {
+        setDataLoading(false);
+      }
+    };
+    loadJobs();
+  }, [authLoading, user?.email, getMyJobs]);
 
-  if (loading) {
+  if (authLoading || dataLoading) {
     return <p className="text-center mt-10">Loading posted jobs...</p>;
   }
 

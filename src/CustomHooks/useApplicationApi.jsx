@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 
-const useUserApplicationApi = () => {
+const useApplicationApi = () => {
   const axiosSecure = useAxiosSecure();
 
   const getMyApplications = useCallback(
@@ -15,4 +15,4 @@ const useUserApplicationApi = () => {
   return { getMyApplications };
 };
 
-export default useUserApplicationApi;
+export default useApplicationApi;
