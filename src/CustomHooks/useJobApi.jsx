@@ -6,7 +6,7 @@ const useJobApi = () => {
 
   const getMyJobs = useCallback(
     async (email) => {
-      const res = await axiosSecure.get(`/applications?email=${email}`);
+      const res = await axiosSecure.get(`/jobsByEmailAddress?email=${email}`);
       return res.data;
     },
     [axiosSecure]

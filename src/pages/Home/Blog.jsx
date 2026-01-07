@@ -32,12 +32,24 @@ const Blog = () => {
         </p>
       </div>
       <Swiper
-        loop={true}
+        loop={blogs.length >= 3}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 10 },
-          768: { slidesPerView: 2, spaceBetween: 15 },
-          1024: { slidesPerView: 3, spaceBetween: 20 },
+          320: {
+            slidesPerView: 1,
+            slidesPerGroup: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            slidesPerGroup: 2,
+            spaceBetween: 15,
+          },
+          1024: {
+            slidesPerView: 3,
+            slidesPerGroup: 3,
+            spaceBetween: 20,
+          },
         }}
         modules={[Autoplay, Pagination]}
       >
