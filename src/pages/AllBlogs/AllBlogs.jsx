@@ -37,6 +37,7 @@ const AllBlogs = () => {
           <div className="w-2/3 grid grid-cols-2 gap-8">
             {blogs.map((blog) => (
               <Motion.div
+                key={blog._id}
                 whileHover={{
                   y: -1,
                   boxShadow: "0px 12px 30px rgba(0,0,0,0.15)",
@@ -45,7 +46,6 @@ const AllBlogs = () => {
                   duration: 0.25,
                   ease: "easeOut",
                 }}
-                key={blog.id}
                 className="border-2 border-gray-200 rounded-xl p-4 bg-white"
               >
                 <img
@@ -67,8 +67,8 @@ const AllBlogs = () => {
                 <div className="flex gap-4 items-center mt-auto pt-4">
                   <img
                     className="w-12 h-12 rounded-full"
-                    src={blog.author.avatar}
-                    alt="blog.author.name"
+                    src={blog.author?.avatar}
+                    alt="blog.author?.name"
                   />
                   <div>
                     <p className="font-medium">{blog.author.name}</p>
@@ -99,9 +99,9 @@ const AllBlogs = () => {
               </h2>
 
               <div className="grid grid-cols-3 gap-3">
-                {blogs.slice(0, 9).map((blog, index) => (
+                {blogs.slice(0, 9).map((blog) => (
                   <img
-                    key={index}
+                    key={blog._id}
                     src={blog.thumbnail}
                     alt=""
                     className="w-full h-20 object-cover rounded-lg hover:opacity-80 transition"
